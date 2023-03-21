@@ -20,6 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class SbbApplicationTests {
 	@Autowired
 	private QuestionRepository questionRepository;
+	@Autowired
 	private QuestionService questionService;
 
 	@BeforeEach
@@ -71,6 +72,7 @@ class SbbApplicationTests {
 		Question q = all.get(0);
 		assertEquals("sbb가 무엇인가요?", q.getSubject());
 	}
+
 	/*
     SQL
     SELECT *
@@ -86,6 +88,7 @@ class SbbApplicationTests {
 			assertEquals("sbb가 무엇인가요?", q.getSubject());
 		}
 	}
+
 	/*
     SQL
     SELECT *
@@ -98,6 +101,7 @@ class SbbApplicationTests {
 		Question q = questionRepository.findBySubject("sbb가 무엇인가요?");
 		assertEquals(1, q.getId());
 	}
+
 	/*
     SQL
     SELECT *
@@ -113,6 +117,7 @@ class SbbApplicationTests {
 		);
 		assertEquals(1, q.getId());
 	}
+
 	/*
     SQL
     SELECT *
@@ -126,6 +131,7 @@ class SbbApplicationTests {
 		Question q = qList.get(0);
 		assertEquals("sbb가 무엇인가요?", q.getSubject());
 	}
+
 	/*
     SQL
     UPDATE
@@ -146,6 +152,7 @@ class SbbApplicationTests {
 		q.setSubject("수정된 제목");
 		questionRepository.save(q);
 	}
+
 	/*
     SQL
     DELETE

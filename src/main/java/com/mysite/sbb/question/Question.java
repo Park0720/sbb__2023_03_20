@@ -9,6 +9,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -27,7 +28,8 @@ public class Question {
     private List<Answer> answerList = new ArrayList<>();
     @ManyToOne
     private SiteUser author;
-
+    @ManyToMany
+    Set<SiteUser> voter;
     public void addAnswer(Answer a) {
         a.setQuestion(this);
         answerList.add(a);
